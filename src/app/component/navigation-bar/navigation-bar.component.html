@@ -1,0 +1,17 @@
+<div style="background-color:cadetblue; color: white; font-family:'Courier New', Courier, monospace; font-size: small; font-weight: bold;" >
+    <mat-toolbar color="primary">
+        <span>Order Delivery System</span>
+        
+        <div class="spacer"></div>
+        <div>
+            <a *ngIf="!(isCustomer() || isWarehouse() || isDelivery() || isQA())" mat-button routerLink="login">Login</a>
+            <a *ngIf="!(isWarehouse() || isDelivery() || isQA())" mat-button label="Web shop" routerLink="web-shop">Web Shop</a>
+            <a *ngIf="isCustomer()" mat-button label="Create order" routerLink="create-order">Create order</a>
+            <a *ngIf="isCustomer()" mat-button label="Show my orders" routerLink="show-my-orders">Show my orders</a> 
+            <!-- <a mat-button label="Display single order" routerLink="display-single-order">Display single order</a>  -->
+            <a *ngIf="isWarehouse()" mat-button label="Show unassigned orders" routerLink="show-unassigned-orders">Show unassigned orders</a> 
+            <a *ngIf="isDelivery()" mat-button label="Show my pending deliveries" routerLink="show-my-pending-deliveries">Show my pending deliveries</a> 
+            <a *ngIf="isQA()" mat-button label="Show delayed deliveries" routerLink="show-delayed-deliveries">Show delayed deliveries</a> 
+        </div>
+    </mat-toolbar>
+</div>

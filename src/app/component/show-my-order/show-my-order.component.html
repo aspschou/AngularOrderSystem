@@ -1,0 +1,12 @@
+<div>
+    <h1>Orders</h1>
+    <div *ngFor="let order of orders">
+        <div>
+          <h3>{{ order.id }}</h3>
+          <p>{{ order.created_at }}</p>
+          <p>{{ order.amount }}</p>
+          <p>Price: ${{ order.price }}</p>
+          <p>{{ order.orderState }}</p>
+        </div>
+    </div>
+</div>

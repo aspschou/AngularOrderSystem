@@ -1,0 +1,31 @@
+<div>
+    <h2>Create an Order</h2>
+  
+    <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+      <label for="selectedProduct">Select a Product:</label>
+      <select id="selectedProduct" formControlName="selectedProduct">
+        <option *ngFor="let product of products" [value]="product.id">{{ product.name }}</option>
+      </select>
+      <div *ngIf="orderForm.get('selectedProduct')?.hasError('required') && orderForm.get('selectedProduct')?.touched">
+        select a product
+      </div>
+      <mat-divider></mat-divider>
+      <label for="amount">Amount:</label>
+      <input id="amount" type="number" formControlName="amount" />
+      <div *ngIf="orderForm.get('amount')?.hasError('required') && orderForm.get('amount')?.touched">
+        select an amount
+      </div>
+      <div *ngIf="orderForm.get('amount')?.hasError('min') && orderForm.get('amount')?.touched">
+        must be positive
+      </div>
+      <mat-divider></mat-divider>
+      <label for="orderDate">Order Date:</label>
+      <input id="orderDate" type="date" formControlName="orderDate" />
+      <div *ngIf="orderForm.get('orderDate')?.hasError('required') && orderForm.get('orderDate')?.touched">
+        date required
+      </div>
+      
+      <mat-divider></mat-divider>
+      <button type="submit">Create Order</button>
+    </form>
+  </div>
